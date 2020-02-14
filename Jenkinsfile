@@ -17,10 +17,10 @@ pipeline {
                 sh 'echo "building docker image"'
                 //cleanup current user docker credentials
                 sh 'rm  ~/.dockercfg || true'
-                sh 'rm ~/.docker/config.json || true'
                 script{
                     docker.withRegistry('https://520491554233.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-west-2:jenkins') {
-                    def app = docker.build("520491554233.dkr.ecr.us-west-2.amazonaws.com/capstone:latest")
+
+                        def app = docker.build("520491554233.dkr.ecr.us-west-2.amazonaws.com/capstone:latest")
 
                     app.push()
                     }
