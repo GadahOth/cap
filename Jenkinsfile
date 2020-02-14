@@ -16,7 +16,7 @@ pipeline {
                 
                 sh 'echo "building docker image"'
                 script{
-                    docker.withRegistry("520491554233.dkr.ecr.us-west-2.amazonaws.com/capstone", "ecr:us-west-2:jenkins") {
+                    docker.withRegistry("520491554233.dkr.ecr.us-west-2.amazonaws.com/capstone", "jenkins") {
                     def app = docker.build("gadahoth/capstonecontainer:latest")
                     app.push()
                     }
