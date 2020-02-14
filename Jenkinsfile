@@ -14,7 +14,7 @@ pipeline {
         stage('Build Docker image'){
             steps {
                 
-                sh 'building docker image'
+                sh 'echo "building docker image"'
                 script{
                     docker.withRegistry("520491554233.dkr.ecr.us-west-2.amazonaws.com/capstone", "ecr:us-west-2:jenkins") {
                     def app = docker.build("gadahoth/capstonecontainer:latest")
