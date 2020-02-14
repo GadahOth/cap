@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    def app
      stages {
         /*stage('clone the repo'){
             steps{
@@ -17,7 +16,7 @@ pipeline {
                 
                 sh 'building docker image'
                 docker.withRegistry("520491554233.dkr.ecr.us-west-2.amazonaws.com/capstone", "ecr:us-west-2:jenkins") {
-                    app = docker.build("gadahoth/capstonecontainer:latest")
+                    def app = docker.build("gadahoth/capstonecontainer:latest")
                     app.push()
                     }
                 sh 'echo "successfully built docker image!"'
