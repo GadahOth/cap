@@ -31,7 +31,10 @@ pipeline {
             steps{
                 withAWS(region:'us-west-2', credentials:'eksUser') {
                     sh '''
-                    
+                    sudo apt-get -y install python3-pip
+                    sudo apt-get install kubectl
+                    sudo apt-get install awscli
+                    pip3 install awscli --upgrade
                     aws eks --region us-west-2 update-kubeconfig --name capstonekscluster
                     kubectl apply -f nginx-deployment.yaml
                     kubectl expose deployment nginx --type=LoadBalancer --name=nginx-service
