@@ -34,6 +34,7 @@ pipeline {
                     aws --version
                     aws eks --region us-west-2 update-kubeconfig --name capstonekscluster
                     kubectl apply -f nginx-deployment.yaml
+                    kubectl apply -f nginx-service.yaml
                     kubectl expose deployment nginx --type=LoadBalancer --name=nginx-service
                     '''                }
             }
